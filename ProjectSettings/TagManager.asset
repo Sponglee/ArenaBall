@@ -9,6 +9,7 @@ TagManager:
   - Ball
   - Wall
   - Exit
+  - Rival
   layers:
   - Default
   - TransparentFX
