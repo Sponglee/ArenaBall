@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoCached
+public class InputManager : Singleton<InputManager>
 {
 
     [SerializeField] private protected Joystick joystick;

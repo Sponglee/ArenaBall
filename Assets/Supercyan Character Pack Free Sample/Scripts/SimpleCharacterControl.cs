@@ -37,6 +37,7 @@ public class SimpleCharacterControl : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log("COLLIDED");
         ContactPoint[] contactPoints = collision.contacts;
         for(int i = 0; i < contactPoints.Length; i++)
         {
@@ -88,7 +89,12 @@ public class SimpleCharacterControl : MonoBehaviour {
         if (m_collisions.Count == 0) { m_isGrounded = false; }
     }
 
-	void Update () {
+
+    private void Start()
+    {
+        inputManager = InputManager.Instance;
+    }
+    void Update () {
         m_animator.SetBool("Grounded", m_isGrounded);
 
         switch(m_controlMode)

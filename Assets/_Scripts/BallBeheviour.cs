@@ -21,6 +21,8 @@ public class BallBeheviour : MonoBehaviour
         }
         else if(collision.gameObject.CompareTag("Wall"))
         {
+            collision.transform.parent.GetComponent<WallBehaviour>().WallReact();
+
             _rb.AddForce(new Vector3(0f, 1f, 0f) + 2f*(collision.transform.position- transform.position).normalized);
         }
         else if (collision.gameObject.CompareTag("Player"))
@@ -44,7 +46,7 @@ public class BallBeheviour : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!IsTriggered && other.CompareTag("Exit"))
+        if(!IsTriggered && lastContact != null && other.CompareTag("Exit"))
         {
             lastContact.GetComponent<CharController>().UpdateScore();
             IsTriggered = true;
