@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BallSpawner : Singleton<BallSpawner>
+public class SpawnManager : Singleton<SpawnManager>
 {
     [SerializeField] private GameObject ballPref;
     [SerializeField] private float levelDiameter = 3f;
-    [SerializeField] private Transform ballHolder;
+
+    public Transform ballHolder;
    
 
 

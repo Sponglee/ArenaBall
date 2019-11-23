@@ -10,6 +10,7 @@ TagManager:
   - Wall
   - Exit
   - Rival
+  - Boundary
   layers:
   - Default
   - TransparentFX

@@ -6,7 +6,8 @@ public class SimpleCharacterControl : MonoBehaviour {
     private enum ControlMode
     {
         Tank,
-        Direct
+        Direct,
+        AI
     }
 
     [SerializeField] private float m_moveSpeed = 2;
@@ -16,6 +17,9 @@ public class SimpleCharacterControl : MonoBehaviour {
     [SerializeField] private Rigidbody m_rigidBody;
 
     [SerializeField] private InputManager inputManager;
+    [SerializeField] private AIMovementController aiMovement;
+    [SerializeField] private bool IsAI;
+
     [SerializeField] private ControlMode m_controlMode = ControlMode.Direct;
 
     private float m_currentV = 0;
@@ -37,7 +41,6 @@ public class SimpleCharacterControl : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log("COLLIDED");
         ContactPoint[] contactPoints = collision.contacts;
         for(int i = 0; i < contactPoints.Length; i++)
         {
@@ -92,8 +95,13 @@ public class SimpleCharacterControl : MonoBehaviour {
 
     private void Start()
     {
-        inputManager = InputManager.Instance;
+        if (!IsAI)
+            inputManager = InputManager.Instance;
+        else
+            aiMovement = transform.GetComponent<AIMovementController>();
     }
+
+
     void Update () {
         m_animator.SetBool("Grounded", m_isGrounded);
 
@@ -107,6 +115,9 @@ public class SimpleCharacterControl : MonoBehaviour {
                 TankUpdate();
                 break;
 
+            case ControlMode.AI:
+                AIUpdate();
+                break;
             default:
                 Debug.LogError("Unsupported state");
                 break;
@@ -173,6 +184,41 @@ public class SimpleCharacterControl : MonoBehaviour {
             transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
 
             m_animator.SetFloat("MoveSpeed", direction.magnitude*m_moveSpeed);
+        }
+
+        JumpingAndLanding();
+    }
+
+    private void AIUpdate()
+    {
+        float v = aiMovement.rivalInput.z;
+        float h = aiMovement.rivalInput.x;
+
+        Transform camera = Camera.main.transform;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+        {
+            v *= m_walkScale;
+            h *= m_walkScale;
+        }
+
+        m_currentV = Mathf.Lerp(m_currentV, v, Time.deltaTime * m_interpolation);
+        m_currentH = Mathf.Lerp(m_currentH, h, Time.deltaTime * m_interpolation);
+
+        Vector3 direction = camera.forward * m_currentV + camera.right * m_currentH;
+
+        float directionLength = direction.magnitude;
+        direction.y = 0;
+        direction = direction.normalized * directionLength;
+
+        if (direction != Vector3.zero)
+        {
+            m_currentDirection = Vector3.Slerp(m_currentDirection, direction, Time.deltaTime * m_interpolation);
+
+            transform.rotation = Quaternion.LookRotation(m_currentDirection);
+            transform.position += m_currentDirection * m_moveSpeed * Time.deltaTime;
+
+            m_animator.SetFloat("MoveSpeed", direction.magnitude * m_moveSpeed);
         }
 
         JumpingAndLanding();

@@ -21,7 +21,7 @@ public class BallBeheviour : MonoBehaviour
         }
         else if(collision.gameObject.CompareTag("Wall"))
         {
-            collision.transform.parent.GetComponent<WallBehaviour>().WallReact();
+            collision.transform.parent.parent.GetComponent<WallBehaviour>().WallReact();
 
             _rb.AddForce(new Vector3(0f, 1f, 0f) + 2f*(collision.transform.position- transform.position).normalized);
         }
@@ -41,7 +41,10 @@ public class BallBeheviour : MonoBehaviour
                 0f,
                 (transform.position.z - collision.transform.position.z)) * 15f + Vector3.up * 1f);
         }
-
+        else if (collision.gameObject.CompareTag("Boundary"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,7 +53,8 @@ public class BallBeheviour : MonoBehaviour
         {
             lastContact.GetComponent<CharController>().UpdateScore();
             IsTriggered = true;
-            BallSpawner.Instance.SpawnBall();
+            SpawnManager.Instance.SpawnBall();
+            transform.SetParent(null);
             
         }
     }

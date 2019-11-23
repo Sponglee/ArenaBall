@@ -187,9 +187,10 @@ GameObject:
   - component: {fileID: 8814703507975607502}
   - component: {fileID: 3995166264513972755}
   - component: {fileID: 3995166264513972752}
+  - component: {fileID: 5306347179076522769}
   m_Layer: 0
-  m_Name: Player
-  m_TagString: Player
+  m_Name: AIRival
+  m_TagString: Rival
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -258,8 +259,8 @@ MonoBehaviour:
   m_rigidBody: {fileID: 8814703507975607502}
   inputManager: {fileID: 0}
   aiMovement: {fileID: 0}
-  IsAI: 0
-  m_controlMode: 1
+  IsAI: 1
+  m_controlMode: 2
 --- !u!114 &3995166264513972752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,6 +275,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreTableRef: {fileID: 0}
   score: 0
+--- !u!114 &5306347179076522769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3995166264513972750}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55b867451c7df4845beb4d664662daae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetBall: {fileID: 0}
+  targetTarget: {fileID: 0}
+  destination: {x: 0, y: 0, z: 0}
+  rivalInput: {x: 0, y: 0, z: 0}
+  walls: []
+  exits: []
+  players: []
+  moveDistance: 0.8
+  targetBreakDistance: 5
+  Kicked: 0
 --- !u!1 &3995308879459036311
 GameObject:
   m_ObjectHideFlags: 0
@@ -1317,8 +1340,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8d74c62051dcbe24eb59170e3cceb73e, type: 2}
-  - {fileID: 2100000, guid: e639426dff5dcfa40bf254c0ffc5f841, type: 2}
+  - {fileID: 2100000, guid: 275068a1fe1114240bdc6dea38e88cc1, type: 2}
+  - {fileID: 2100000, guid: d43227bbf28f41a4e9139f78bd8452fd, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1589,7 +1612,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3996898174919932461}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.112999976, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 3995166263930907604}
