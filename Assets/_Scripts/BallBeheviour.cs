@@ -52,8 +52,9 @@ public class BallBeheviour : MonoBehaviour
         if(!IsTriggered && lastContact != null && other.CompareTag("Exit"))
         {
             lastContact.GetComponent<CharController>().UpdateScore();
+            other.transform.parent.parent.GetComponent<WallBehaviour>().WallReact();
             IsTriggered = true;
-            SpawnManager.Instance.SpawnBall();
+            //SpawnManager.Instance.SpawnBall();
             transform.SetParent(null);
             
         }

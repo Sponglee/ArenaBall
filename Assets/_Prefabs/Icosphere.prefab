@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3865472244571203753}
   - component: {fileID: 3865472244571203762}
   - component: {fileID: 3865472244571203763}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Ball
   m_Icon: {fileID: 0}

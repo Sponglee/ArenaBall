@@ -8,8 +8,24 @@ public class SpawnManager : Singleton<SpawnManager>
     [SerializeField] private float levelDiameter = 3f;
 
     public Transform ballHolder;
-   
+    public int numberOfBalls = 3;
 
+    private void Update()
+    {
+        if(Input.GetMouseButtonDown(1))
+        {
+            SpawnWave();
+        }
+    }
+
+    public void SpawnWave()
+    {
+        for (int i = 0; i < numberOfBalls; i++)
+        {
+            SpawnBall();
+        }
+        
+    }
 
 
 

@@ -36,7 +36,7 @@ public class AIMovementController : MonoBehaviour
 
     private void Update()
     {
-        if(targetBall.parent != null)
+        if(targetBall != null && targetBall.parent != null)
         {
             Debug.DrawLine(transform.position, targetBall.position, Color.red);
             Debug.DrawLine(targetBall.position, targetTarget.position, Color.green);
@@ -52,9 +52,13 @@ public class AIMovementController : MonoBehaviour
           
 
         }
-        else
+        else if(_ballHolder.childCount>0)
         {
             ChangeTarget();
+        }
+        else
+        {
+            UpdateAIJoystic(Vector3.zero);
         }
     }
 
@@ -72,6 +76,10 @@ public class AIMovementController : MonoBehaviour
         {
             rivalInput = new Vector3((targetBall.position - transform.position).normalized.x, 
                 0f, (targetBall.position - transform.position).normalized.z);
+        }
+        else if(desto == Vector3.zero)
+        {
+            rivalInput = Vector3.zero;
         }
         else
             rivalInput = new Vector3((desto - transform.position).normalized.x, 0f, (desto - transform.position).normalized.z);
