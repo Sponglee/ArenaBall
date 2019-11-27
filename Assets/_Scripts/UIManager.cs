@@ -14,11 +14,8 @@ public class UIManager : Singleton<UIManager>
 
         GameObject tmpScoreElem = Instantiate(scoreElementPref, uiContainer);
 
-        target.scoreTableRef = tmpScoreElem.transform.GetChild(0).GetComponent<Text>();
+        target.ScoreTableRef = tmpScoreElem.GetComponent<ScoreUpdater>();
     }
  
-    public void UpdateText(Text textField, string text)
-    {
-        textField.text = text;
-    }
+   
 }

@@ -41,10 +41,7 @@ public class BallBeheviour : MonoBehaviour
                 0f,
                 (transform.position.z - collision.transform.position.z)) * 15f + Vector3.up * 1f);
         }
-        else if (collision.gameObject.CompareTag("Boundary"))
-        {
-            Destroy(gameObject);
-        }
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -57,6 +54,14 @@ public class BallBeheviour : MonoBehaviour
             //SpawnManager.Instance.SpawnBall();
             transform.SetParent(null);
             
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Boundary"))
+        {
+            Destroy(gameObject);
         }
     }
 }

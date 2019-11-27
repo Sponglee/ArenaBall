@@ -5,7 +5,22 @@ using UnityEngine.UI;
 
 public class CharController : MonoBehaviour
 {
-    public Text scoreTableRef;
+    [SerializeField] private RivalStaticData botNames;
+
+    [SerializeField] private ScoreUpdater scoreTableRef;
+    public ScoreUpdater ScoreTableRef
+    {
+        get
+        {
+            return scoreTableRef;
+        }
+
+        set
+        {
+            scoreTableRef = value;
+        }
+    }
+
     [SerializeField] private int score;
     public int Score
     {
@@ -20,9 +35,20 @@ public class CharController : MonoBehaviour
         }
     }
 
+  
     private void Start()
     {
         UIManager.Instance.InitializeScoreUI(this);
+        if(botNames == null)
+        {
+
+            scoreTableRef.UpdateName(PlayerPrefs.GetString("PlayerName","You"));
+        }
+        else
+        {
+            scoreTableRef.UpdateName(botNames.RivalNames[Random.Range(0,botNames.RivalNames.Length)]);
+        }
+        scoreTableRef.UpdateScore(Score.ToString());
     }
 
     public void UpdateScore()
@@ -30,7 +56,7 @@ public class CharController : MonoBehaviour
 
 
         Score++;
-        UIManager.Instance.UpdateText(scoreTableRef, Score.ToString());
+        scoreTableRef.UpdateScore(Score.ToString());
 
 
     }

@@ -273,6 +273,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefad765d3890aa4182dbfd31e157897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  botNames: {fileID: 11400000, guid: ba5714121e0f15d4e8d67de4d926b1e1, type: 2}
   scoreTableRef: {fileID: 0}
   score: 0
 --- !u!114 &5306347179076522769
