@@ -252,7 +252,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_moveSpeed: 3
-  m_turnSpeed: 200
+  m_turnSpeed: 600
   m_jumpForce: 4
   m_animator: {fileID: 3900803734636170237}
   m_rigidBody: {fileID: 8814703507975607502}
@@ -272,6 +272,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cefad765d3890aa4182dbfd31e157897, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  botNames: {fileID: 0}
+  namePlate: {fileID: 0}
   scoreTableRef: {fileID: 0}
   score: 0
 --- !u!1 &3995308879459036311

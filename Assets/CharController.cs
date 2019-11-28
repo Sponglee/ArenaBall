@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class CharController : MonoBehaviour
 {
     [SerializeField] private RivalStaticData botNames;
+    [SerializeField] private Text namePlate;
 
     [SerializeField] private ScoreUpdater scoreTableRef;
     public ScoreUpdater ScoreTableRef
@@ -46,7 +47,9 @@ public class CharController : MonoBehaviour
         }
         else
         {
-            scoreTableRef.UpdateName(botNames.RivalNames[Random.Range(0,botNames.RivalNames.Length)]);
+            string tmpName = botNames.RivalNames[Random.Range(0, botNames.RivalNames.Length)];
+            scoreTableRef.UpdateName(tmpName);
+            namePlate.text = tmpName;
         }
         scoreTableRef.UpdateScore(Score.ToString());
     }

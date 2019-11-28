@@ -10,6 +10,28 @@ public class SpawnManager : Singleton<SpawnManager>
     public Transform ballHolder;
     public int numberOfBalls = 3;
 
+    [SerializeField]
+    private int ballCount = 0;
+    public int BallCount
+    {
+        get
+        {
+            return ballCount;
+        }
+
+        set
+        {
+            if (value <= 0)
+            {
+                ballCount = 0;
+                CheckSpawn();
+            }
+            else
+                ballCount = value;
+        }
+    }
+
+
     private void Update()
     {
         if(Input.GetMouseButtonDown(1))
@@ -33,5 +55,22 @@ public class SpawnManager : Singleton<SpawnManager>
     {
         Instantiate(ballPref, transform.position +  new Vector3(Random.Range(-levelDiameter, levelDiameter), Random.Range(-levelDiameter, levelDiameter),
             Random.Range(-levelDiameter, levelDiameter)), Quaternion.identity, ballHolder);
+        BallCount++;
+    }
+
+
+    public void DetatchBall(Transform target)
+    {
+        target.SetParent(null);
+        target.GetComponent<MeshCollider>().isTrigger = true;
+        BallCount--;
+    }
+
+    public void CheckSpawn()
+    {
+        if(ballHolder.childCount == 0)
+        {
+            SpawnWave();
+        }
     }
 }
