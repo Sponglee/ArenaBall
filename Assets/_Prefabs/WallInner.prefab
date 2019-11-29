@@ -59,7 +59,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1, z: 8.94}
+  m_Size: {x: 0.1, y: 1.1, z: 8.94}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1741940706
 GameObject:
@@ -120,7 +120,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1, z: 8.94}
+  m_Size: {x: 0.1, y: 1.1, z: 8.94}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1896036147
 GameObject:
@@ -181,7 +181,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 1, z: 8.94}
+  m_Size: {x: 0.1, y: 1.1, z: 8.94}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1261822832167025827
 GameObject:
@@ -227,7 +227,7 @@ GameObject:
   - component: {fileID: 5053705064114220756}
   - component: {fileID: 2953032748069564869}
   m_Layer: 0
-  m_Name: Wall
+  m_Name: WallInner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

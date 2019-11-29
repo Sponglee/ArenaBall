@@ -33,6 +33,7 @@ public class CharController : MonoBehaviour
         set
         {
             score = value;
+            FunctionHandler.Instance.WinCheck(this, value);
         }
     }
 

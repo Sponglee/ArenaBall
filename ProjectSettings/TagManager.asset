@@ -11,6 +11,9 @@ TagManager:
   - Exit
   - Rival
   - Boundary
+  - UI
+  - Water
+  - Level
   layers:
   - Default
   - TransparentFX

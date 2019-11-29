@@ -31,35 +31,42 @@ public class AIMovementController : MonoBehaviour
 
 
         targetTarget = GetTarget();
+
+        StartCoroutine(BehaviourRunner());
     }
 
 
-    private void Update()
+    private IEnumerator BehaviourRunner()
     {
-        if(targetBall != null && targetBall.parent != null)
+        while(true)
         {
-            Debug.DrawLine(transform.position, targetBall.position, Color.red);
-            Debug.DrawLine(targetBall.position, targetTarget.position, Color.green);
-            Debug.DrawLine(targetBall.position, targetBall.position + (targetBall.position- targetTarget.position).normalized, Color.black);
+            if (targetBall != null && targetBall.parent != null)
+            {
+                Debug.DrawLine(transform.position, targetBall.position, Color.red);
+                Debug.DrawLine(targetBall.position, targetTarget.position, Color.green);
+                Debug.DrawLine(targetBall.position, targetBall.position + (targetBall.position - targetTarget.position).normalized, Color.black);
 
 
 
 
-            destination = targetBall.position + (targetBall.position - targetTarget.position).normalized;
-            Debug.DrawLine(transform.position, destination, Color.white);
+                destination = targetBall.position + (targetBall.position - targetTarget.position).normalized;
+                Debug.DrawLine(transform.position, destination, Color.white);
 
-            UpdateAIJoystic(destination);
-          
+                UpdateAIJoystic(destination);
 
+
+            }
+            else if (_ballHolder.childCount > 0)
+            {
+                ChangeTarget();
+            }
+            else
+            {
+                UpdateAIJoystic(Vector3.zero);
+            }
+            yield return null;
         }
-        else if(_ballHolder.childCount>0)
-        {
-            ChangeTarget();
-        }
-        else
-        {
-            UpdateAIJoystic(Vector3.zero);
-        }
+       
     }
 
 

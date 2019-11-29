@@ -43,13 +43,19 @@ public class FunctionHandler : Singleton<FunctionHandler>
 
 
     //Check 
-    public  void WinCheck(Transform player=null, Transform plateRef=null)
+    public  void WinCheck(CharController target, int score)
     {
-       if(false)
+
+
+
+       if(LevelManager.Instance.levelGoal <= score)
        {
             
-            WinSequence(player);
-          
+            WinSequence(target.transform);
+
+            //TODO ADD "WON" LISTENER EVENT
+            GameObject.FindGameObjectWithTag("Rival").GetComponent<AIMovementController>().StopAllCoroutines();
+            GameObject.FindGameObjectWithTag("Rival").GetComponent<AIMovementController>().rivalInput = Vector3.zero;
        }
        
 
@@ -58,7 +64,7 @@ public class FunctionHandler : Singleton<FunctionHandler>
 
 
 
-    //Use bubble sort
+    //Camera and menu sequence
     public void WinSequence(Transform player)
     {
         //if (PlayerPrefs.GetInt("LevelIndex", 0) + 1 <= LevelStorage.Instance.levelPrefabs.Length - 1 && LevelStorage.Instance.CurrentLevelIndex == LevelStorage.Instance.levelProgress)
