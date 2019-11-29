@@ -29,7 +29,7 @@ public class FunctionHandler : Singleton<FunctionHandler>
     // Start is called before the first frame update
     void Start()
     {
-        PlayerName = PlayerPrefs.GetString("PlayerName", "Player1");
+        PlayerName = PlayerPrefs.GetString("PlayerName", "You");
         if(playerNameInput != null)
             playerNameInput.text = "Name: " + PlayerName;
 
