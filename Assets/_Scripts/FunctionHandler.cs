@@ -22,9 +22,11 @@ public class FunctionHandler : Singleton<FunctionHandler>
     public GameObject scoreTablePref;
     public GameObject tmpScore;
 
-    
-
     public CinemachineVirtualCamera finishCam;
+
+    public delegate void GameOverEvent();
+    public static event GameOverEvent OnGameOver;
+
 
     // Start is called before the first frame update
     void Start()
@@ -43,7 +45,7 @@ public class FunctionHandler : Singleton<FunctionHandler>
 
 
     //Check 
-    public  void WinCheck(CharController target, int score)
+    public  void WinCheck(CharController target, int score, bool playerBool)
     {
 
 
@@ -51,11 +53,9 @@ public class FunctionHandler : Singleton<FunctionHandler>
        if(LevelManager.Instance.levelGoal <= score)
        {
             
-            WinSequence(target.transform);
+            WinSequence(target.transform, playerBool);
 
-            //TODO ADD "WON" LISTENER EVENT
-            GameObject.FindGameObjectWithTag("Rival").GetComponent<AIMovementController>().StopAllCoroutines();
-            GameObject.FindGameObjectWithTag("Rival").GetComponent<AIMovementController>().rivalInput = Vector3.zero;
+            OnGameOver.Invoke();
        }
        
 
@@ -65,7 +65,7 @@ public class FunctionHandler : Singleton<FunctionHandler>
 
 
     //Camera and menu sequence
-    public void WinSequence(Transform player)
+    public void WinSequence(Transform target, bool isPlayer)
     {
         //if (PlayerPrefs.GetInt("LevelIndex", 0) + 1 <= LevelStorage.Instance.levelPrefabs.Length - 1 && LevelStorage.Instance.CurrentLevelIndex == LevelStorage.Instance.levelProgress)
         //{
@@ -76,13 +76,21 @@ public class FunctionHandler : Singleton<FunctionHandler>
 
 
         winCanvas.SetActive(true);
-     
+        if(!isPlayer)
+        {
+            menuText.text = "DEFEAT";
+        }
+        else
+        {
+            menuText.text = "YOU WON!";
+        }
+
+
+
         gameObject.SetActive(true);
-
-
         //if (winTmpData.name == PlayerName)
         finishCam.m_Priority = 199;
-        finishCam.m_LookAt = player;
+        finishCam.m_LookAt = target;
 
 
         //player.GetComponent<CharController>().anim.SetTrigger("Finish");
@@ -90,7 +98,7 @@ public class FunctionHandler : Singleton<FunctionHandler>
       
 
         //Freeze player in place
-        player.GetComponent<Rigidbody>().isKinematic = true;
+        target.GetComponent<Rigidbody>().isKinematic = true;
 
     
     }

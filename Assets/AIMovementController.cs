@@ -24,7 +24,10 @@ public class AIMovementController : MonoBehaviour
 
     private void Start()
     {
-        _ballHolder = SpawnManager.Instance.ballHolder;
+        FunctionHandler.OnGameOver += StopAI;
+
+
+            _ballHolder = SpawnManager.Instance.ballHolder;
         walls = GameObject.FindGameObjectsWithTag("Wall");
         exits = GameObject.FindGameObjectsWithTag("Exit");
         players = GameObject.FindGameObjectsWithTag("Player");
@@ -35,6 +38,11 @@ public class AIMovementController : MonoBehaviour
         StartCoroutine(BehaviourRunner());
     }
 
+    public void StopAI()
+    {
+        StopAllCoroutines();
+        rivalInput = Vector3.zero;
+    }
 
     private IEnumerator BehaviourRunner()
     {

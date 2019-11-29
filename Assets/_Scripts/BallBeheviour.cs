@@ -21,7 +21,7 @@ public class BallBeheviour : MonoBehaviour
         }
         else if(collision.gameObject.CompareTag("Wall"))
         {
-            collision.transform.parent.parent.GetComponent<WallBehaviour>().WallReact();
+            collision.transform.parent.parent.GetComponent<WallHitReact>().WallReact();
 
             _rb.AddForce(new Vector3(0f, 1f, 0f) + 2f*(collision.transform.position- transform.position).normalized);
         }
@@ -51,7 +51,7 @@ public class BallBeheviour : MonoBehaviour
             if (lastContact != null)
             {
                 lastContact.GetComponent<CharController>().UpdateScore();
-                other.transform.parent.parent.GetComponent<WallBehaviour>().WallReact();
+                other.transform.parent.parent.GetComponent<WallHitReact>().WallReact();
                 IsTriggered = true;
                 //SpawnManager.Instance.SpawnBall();
                 SpawnManager.Instance.DetatchBall(transform);
