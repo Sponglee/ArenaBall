@@ -236,6 +236,10 @@ MonoBehaviour:
   IsReacting: 0
   startColor: {r: 0, g: 0, b: 0, a: 0}
   modelRef: {fileID: 4029249125905570279}
+  blockers: {fileID: 7193761395286489229}
+  IsBlocking: 1
+  colliderSides: {x: 0, y: 0, z: 0}
+  IsInner: 0
 --- !u!1 &3463149931178314727
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,7 +438,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7193761395286489229
 Transform:
   m_ObjectHideFlags: 0

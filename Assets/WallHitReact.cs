@@ -11,12 +11,21 @@ public class WallHitReact : MonoBehaviour
     [SerializeField] private Transform modelRef;
     private Material matRef;
 
-    
-
+    [SerializeField] private Transform blockers;
+    [SerializeField] private bool IsBlocking = false;
+    [SerializeField] private Vector3 colliderSides;
+    public bool IsInner = false;
     private void Start()
     {
 
-      
+        if(IsBlocking)
+        {
+            blockers.gameObject.SetActive(true);
+        }
+        if(IsInner)
+        {
+
+        }
         matRef = modelRef.GetComponent<Renderer>().material;
         startColor = matRef.GetColor("_EmissionColor");
     }

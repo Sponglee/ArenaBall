@@ -6,9 +6,9 @@ public class SpawnManager : Singleton<SpawnManager>
 {
     [SerializeField] private GameObject ballPref;
     [SerializeField] private float levelDiameter = 3f;
+    public int numberOfBalls = 3;
 
     public Transform ballHolder;
-    public int numberOfBalls = 3;
 
     [SerializeField]
     private int ballCount = 0;
@@ -31,6 +31,12 @@ public class SpawnManager : Singleton<SpawnManager>
         }
     }
 
+    private void Start()
+    {
+        levelDiameter = LevelManager.Instance.Diameter;
+        numberOfBalls = LevelManager.Instance.BallsToSpawn;
+        CheckSpawn(); 
+    }
 
     private void Update()
     {

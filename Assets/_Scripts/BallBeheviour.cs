@@ -48,15 +48,15 @@ public class BallBeheviour : MonoBehaviour
     {
         if(!IsTriggered && other.CompareTag("Exit"))
         {
-            if (lastContact != null)
+            if (lastContact != null && !other.transform.parent.parent.GetComponent<WallHitReact>().IsInner)
             {
-                lastContact.GetComponent<CharController>().UpdateScore();
                 other.transform.parent.parent.GetComponent<WallHitReact>().WallReact();
+                lastContact.GetComponent<CharController>().UpdateScore();
                 IsTriggered = true;
-                //SpawnManager.Instance.SpawnBall();
                 SpawnManager.Instance.DetatchBall(transform);
+                //SpawnManager.Instance.SpawnBall();
             }
-            else
+            else if (!other.transform.parent.parent.GetComponent<WallHitReact>().IsInner)
             {
                 SpawnManager.Instance.DetatchBall(transform);
             }
