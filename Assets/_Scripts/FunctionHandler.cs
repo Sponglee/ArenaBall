@@ -54,7 +54,7 @@ public class FunctionHandler : Singleton<FunctionHandler>
        {
             
             WinSequence(target.transform, playerBool);
-
+            OnGameOver += target.GetComponent<SimpleCharacterControl>().FinishedAnimation;
             OnGameOver.Invoke();
        }
        

@@ -21,13 +21,8 @@ public class SpawnManager : Singleton<SpawnManager>
 
         set
         {
-            if (value <= 0)
-            {
-                ballCount = 0;
-                CheckSpawn();
-            }
-            else
-                ballCount = value;
+            CheckSpawn();
+            ballCount = value;
         }
     }
 
@@ -74,7 +69,7 @@ public class SpawnManager : Singleton<SpawnManager>
 
     public void CheckSpawn()
     {
-        if(ballHolder.childCount == 0)
+        if(ballHolder.childCount <= 0)
         {
             SpawnWave();
         }

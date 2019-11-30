@@ -95,6 +95,8 @@ public class SimpleCharacterControl : MonoBehaviour {
 
     private void Start()
     {
+        
+
         if (!IsAI)
             inputManager = InputManager.Instance;
         else
@@ -243,5 +245,11 @@ public class SimpleCharacterControl : MonoBehaviour {
         {
             m_animator.SetTrigger("Jump");
         }
+    }
+
+
+    public void FinishedAnimation()
+    {
+        m_animator.SetTrigger("Wave");
     }
 }
