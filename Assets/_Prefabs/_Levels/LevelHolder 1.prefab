@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 3665818973154523807}
   - component: {fileID: 3665818973154523806}
   - component: {fileID: 3665818973154523803}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Floor
-  m_TagString: Ground
+  m_TagString: Floor
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4539,18 +4539,6 @@ PrefabInstance:
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.153
-      objectReference: {fileID: 0}
-    - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.592
-      objectReference: {fileID: 0}
-    - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.24
-      objectReference: {fileID: 0}
-    - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
       propertyPath: m_LocalRotation.x
       value: -0
       objectReference: {fileID: 0}
@@ -4565,6 +4553,18 @@ PrefabInstance:
     - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.9192404
+      objectReference: {fileID: 0}
+    - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.592
+      objectReference: {fileID: 0}
+    - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.153
       objectReference: {fileID: 0}
     - target: {fileID: 429404, guid: 802bd3dc24c20394ca2037c1b9c882a0, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
@@ -4662,28 +4662,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1847397297745928352, guid: 17d809caac7bd3f46b650c176b558cf9,
         type: 3}
-      propertyPath: m_Convex
+      propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1847397297745928352, guid: 17d809caac7bd3f46b650c176b558cf9,
         type: 3}
-      propertyPath: m_IsTrigger
+      propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1847397297476643326, guid: 17d809caac7bd3f46b650c176b558cf9,
         type: 3}
       propertyPath: m_TagString
       value: Boundary
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847397297476643324, guid: 17d809caac7bd3f46b650c176b558cf9,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847397297476643324, guid: 17d809caac7bd3f46b650c176b558cf9,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 1847397297476643324, guid: 17d809caac7bd3f46b650c176b558cf9,
         type: 3}
@@ -4694,16 +4684,6 @@ PrefabInstance:
         type: 3}
       propertyPath: waterRenderers.Array.size
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847397296759773714, guid: 17d809caac7bd3f46b650c176b558cf9,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1847397296759773714, guid: 17d809caac7bd3f46b650c176b558cf9,
-        type: 3}
-      propertyPath: waterRenderers.Array.data[1]
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 17d809caac7bd3f46b650c176b558cf9, type: 3}

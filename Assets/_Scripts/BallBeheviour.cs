@@ -15,7 +15,7 @@ public class BallBeheviour : MonoBehaviour
     }
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("Floor"))
         {
             //_rb.AddForce(new Vector3(Random.Range(-1f, 1f)+ 0f, 1f, /*Random.Range(-1f, 1f)*/0f));
         }
