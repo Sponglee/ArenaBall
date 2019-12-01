@@ -122,7 +122,10 @@ public class AIMovementController : MonoBehaviour
         //Target player
         else
         {
-            chosenTarget = players[Random.Range(0, players.Length)].transform;
+            if(players.Length>0)
+                chosenTarget = players[Random.Range(0, players.Length)].transform;
+            else
+                chosenTarget = exits[Random.Range(0, exits.Length)].transform;
         }
 
         return chosenTarget;
