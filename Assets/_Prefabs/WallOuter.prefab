@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1170751413}
   - component: {fileID: 1170751415}
   - component: {fileID: 1170751414}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider1 (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 1741940707}
   - component: {fileID: 1741940709}
   - component: {fileID: 1741940708}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider2 (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 1896036148}
   - component: {fileID: 1896036150}
   - component: {fileID: 1896036149}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Collider0 (1)
   m_TagString: Wall
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3050226111210341698}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 0Colliders
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,7 +226,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5053705064114220756}
   - component: {fileID: 2953032748069564869}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: WallOuter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 238826817310932972}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: 1Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -307,16 +307,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 238826817310932972}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 57d05fb1303c6d14895eadbd2020e1bf,
-        type: 3}
-      propertyPath: m_Name
-      value: 1 (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 57d05fb1303c6d14895eadbd2020e1bf,
-        type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 57d05fb1303c6d14895eadbd2020e1bf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -392,6 +382,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: d43227bbf28f41a4e9139f78bd8452fd, type: 2}
+    - target: {fileID: -927199367670048503, guid: 57d05fb1303c6d14895eadbd2020e1bf,
+        type: 3}
+      propertyPath: m_Name
+      value: 1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 57d05fb1303c6d14895eadbd2020e1bf,
+        type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 57d05fb1303c6d14895eadbd2020e1bf,
+        type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57d05fb1303c6d14895eadbd2020e1bf, type: 3}
 --- !u!4 &568949131929314611 stripped

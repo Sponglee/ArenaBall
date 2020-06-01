@@ -27,11 +27,13 @@ public class BallBeheviour : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Player"))
         {
+            Debug.Log("Here");
+            collision.gameObject.tag = "Ball";
             lastContact = collision.gameObject;
 
             _rb.AddForce(new Vector3((transform.position.x - collision.transform.position.x), 
                 0f, 
-                (transform.position.z - collision.transform.position.z))*15f + Vector3.up*1f);
+                (transform.position.z - collision.transform.position.z))*1f + Vector3.up*1f);
         }
         else if (collision.gameObject.CompareTag("Rival"))
         {
